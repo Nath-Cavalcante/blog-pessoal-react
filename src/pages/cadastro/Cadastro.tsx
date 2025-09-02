@@ -22,7 +22,7 @@ function Cadastro() {
   })
 
   useEffect(() => {
-    if (usuario.id ! == 0){
+    if (usuario.id !== 0){
       retornar()
     }
   }, [usuario])
@@ -45,7 +45,7 @@ function Cadastro() {
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>){
     e.preventDefault()
 
-    if(confirmarSenha == usuario.senha && usuario.senha.length >= 8){
+    if(confirmarSenha === usuario.senha && usuario.senha.length >= 8){
 
       setIsLoading(true)
 
@@ -69,7 +69,7 @@ function Cadastro() {
             place-items-center font-bold">
         <div className="fundoCadastro hidden lg:block"></div>
         <form className='flex justify-center items-center flex-col w-2/3 gap-3'
-        onSubmit={cadastrarNovoUsuario}>
+              onSubmit={cadastrarNovoUsuario}>
           <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>
           <div className="flex flex-col w-full">
             <label htmlFor="nome">Nome</label>
@@ -80,8 +80,7 @@ function Cadastro() {
               placeholder="Nome"
               className="border-2 border-slate-700 rounded p-2"
               value={usuario.nome}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-             
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}             
             />
           </div>
           <div className="flex flex-col w-full">
