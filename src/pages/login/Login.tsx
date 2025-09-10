@@ -2,17 +2,18 @@ import { useContext, useEffect, useState, type ChangeEvent, type FormEvent } fro
 import './Login.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import type UsuarioLogin from '../../models/UsuarioLogin';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
+
 
 function Login() {
 
     const navigate = useNavigate()
 
-  const {usuario, handleLogin, isLoading} = useContext(AuthContext)
+    const {usuario, handleLogin, isLoading} = useContext(AuthContext)
 
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
-    {} as UsuarioLogin
+    const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
+        {} as UsuarioLogin
   )
 
   useEffect(() => {
@@ -83,10 +84,13 @@ function Login() {
 
                     <p>
                         Ainda não tem uma conta?{' '}
-                        Cadastre-se
+                         <Link to="/cadastro" className="text-indigo-800 hover:underline">
+                            Cadastre-se
+                        </Link>
                     </p>
                 </form>
-                <div className="fundoLogin hidden lg:block"></div>
+                <div className="bg-[url('https://i.imgur.com/ZZFAmzo.jpg')] lg:block hidden bg-no-repeat 
+                                w-full min-h-screen bg-cover bg-center"></div>
             </div>
         </>
     );
